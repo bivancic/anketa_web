@@ -1,9 +1,0 @@
-====================== 
-31.03.2026. 22:33:45,84 
-'git' is not recognized as an internal or external command,
-operable program or batch file.
-'git' is not recognized as an internal or external command,
-operable program or batch file.
-'git' is not recognized as an internal or external command,
-operable program or batch file.
-GOTOVO 
