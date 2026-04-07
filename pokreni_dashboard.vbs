@@ -1,7 +1,7 @@
 Option Explicit
 On Error Resume Next
 
-Dim Excel, wb, WshShell, oExec
+Dim Excel, wb, WshShell, exitCode
 
 ' Launch Excel invisibly
 Set Excel = CreateObject("Excel.Application")
@@ -41,15 +41,10 @@ Set Excel = Nothing
 
 WScript.Sleep 2000
 
-' Run the batch file
+' Run the batch file - hidden window (0), wait for it to finish (True)
 Set WshShell = CreateObject("WScript.Shell")
-Set oExec = WshShell.Exec("cmd /c C:\GITHUB\anketa_web\upload.bat")
+exitCode = WshShell.Run("cmd /c C:\GITHUB\anketa_web\upload.bat", 0, True)
 
-Do While oExec.Status = 0
-    WScript.Sleep 1000
-Loop
-
-Set oExec = Nothing
 Set WshShell = Nothing
 
-WScript.Quit 0
+WScript.Quit exitCode
