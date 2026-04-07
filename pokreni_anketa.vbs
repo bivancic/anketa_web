@@ -1,6 +1,6 @@
 On Error Resume Next
 
-Dim Excel, wb, WshShell
+Dim Excel, wb
 
 Set Excel = CreateObject("Excel.Application")
 Excel.Visible = False
@@ -8,8 +8,10 @@ Excel.DisplayAlerts = False
 
 Set wb = Excel.Workbooks.Open("C:\GITHUB\anketa_web\Anketa_GitHub.xlsm")
 
+' pokreni makro
 Excel.Run "AUTO_index"
 
+' èekaj da završi
 Do While Excel.Ready = False
     WScript.Sleep 1000
 Loop
@@ -17,15 +19,7 @@ Loop
 wb.Close False
 Excel.Quit
 
-WScript.Sleep 2000
-
 Set wb = Nothing
 Set Excel = Nothing
-
-Set WshShell = CreateObject("WScript.Shell")
-
-WshShell.Run "cmd /c C:\GITHUB\anketa_web\upload.bat", 0, True
-
-Set WshShell = Nothing
 
 WScript.Quit
