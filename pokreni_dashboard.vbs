@@ -1,6 +1,6 @@
 On Error Resume Next
 
-Dim Excel, wb, WshShell, oExec
+Dim Excel, wb, WshShell
 
 Set Excel = CreateObject("Excel.Application")
 Excel.Visible = False
@@ -24,13 +24,8 @@ Set Excel = Nothing
 
 Set WshShell = CreateObject("WScript.Shell")
 
-Set oExec = WshShell.Exec("cmd /c C:\GITHUB\anketa_web\upload.bat")
+WshShell.Run "cmd /c C:\GITHUB\anketa_web\upload.bat", 0, True
 
-Do While oExec.Status = 0
-    WScript.Sleep 1000
-Loop
-
-Set oExec = Nothing
 Set WshShell = Nothing
 
 WScript.Quit
