@@ -10,4 +10,4 @@ git commit -m "auto update"
 echo PUSH
 git push origin main
 
-pause
+exit
